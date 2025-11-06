@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './components/navbar'
 import HeroSection from './components/hero'
 import TrustedSection from './components/trusted'
+import Deliver from './components/deliver'
 
 const page = () => {
   return (
@@ -9,6 +10,7 @@ const page = () => {
       <Navbar/>
       <HeroSection/>
       <TrustedSection/>
+      <Deliver/>
     </div>
   )
 }

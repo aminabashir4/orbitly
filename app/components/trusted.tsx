@@ -17,7 +17,7 @@ export default function TrustedSection() {
   ];
 
   return (
-    <section className="bg-[#f6f6f4] pt-32 pb-16 flex flex-col items-center">
+    <section className="bg-[#f6f6f5] pt-32 pb-16 flex flex-col items-center">
       <h2 className="text-gray-700 text-lg font-medium mb-10 text-center">
         Trusted by thousands of agencies and consulting firms
       </h2>
