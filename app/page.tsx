@@ -4,6 +4,7 @@ import HeroSection from './components/hero'
 import TrustedSection from './components/trusted'
 import Deliver from './components/deliver'
 import ClientWorkflowSection from './components/client-work'
+import BillingSection from './components/billing'
 
 const page = () => {
   return (
@@ -13,6 +14,7 @@ const page = () => {
       <TrustedSection/>
       <Deliver/>
       <ClientWorkflowSection/>
+      <BillingSection/>
     </div>
   )
 }
