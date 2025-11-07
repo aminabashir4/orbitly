@@ -7,6 +7,7 @@ import ClientWorkflowSection from './components/client-work'
 import BillingSection from './components/billing'
 import PricingPlansSection from './components/pricing'
 import GetStartedSection from './components/get-started'
+import Footer from './components/footer'
 
 const page = () => {
   return (
@@ -19,6 +20,7 @@ const page = () => {
       <BillingSection/>
       <PricingPlansSection/>
       <GetStartedSection/>
+      <Footer/>
     </div>
   )
 }

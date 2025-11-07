@@ -38,7 +38,7 @@ export default function GetStartedSection() {
             </button>
           </div>
 
-          <button className="px-6 py-2 text-[#939d91] rounded-full font-medium hover:text-[#00FF8C] transition">
+          <button className="px-6 py-2 text-[#939d91] rounded-full font-medium  transition">
             Book a demo ❯
           </button>
         </div>
