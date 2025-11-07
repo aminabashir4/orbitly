@@ -73,7 +73,7 @@ export default function ClientWorkflowSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="bg-gray-50 py-20 px-6 sm:px-10 md:px-16 lg:px-32 overflow-hidden">
+    <section ref={sectionRef} className="bg-gray-50 pb-20 px-6 sm:px-10 md:px-16 lg:px-32 overflow-hidden">
       <div
         className={`mx-auto transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"

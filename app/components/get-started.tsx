@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function GetStartedSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center text-center py-32 px-6 bg-[#0f120f] overflow-hidden">
+    <section className="relative flex flex-col items-center justify-center text-center py-20 md:py-32 px-6 bg-[#0f120f] overflow-hidden">
       {/* Background angled stripes */}
       <div className="absolute inset-0 flex opacity-40">
         <div className="bg-linear-to-b from-transparent to-black/40 w-1/3 rotate-10 translate-x-[-10%]"></div>
