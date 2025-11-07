@@ -1,6 +1,13 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
+
 export default function PricingPlansSection() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [displayedText, setDisplayedText] = useState("");
+  const fullText = "Pick the best plan\nfor your business";
+
   const plans = [
     {
       title: "Basic",
@@ -53,15 +60,48 @@ export default function PricingPlansSection() {
     },
   ];
 
+  // Observe section visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // Typing animation for heading
+  useEffect(() => {
+    if (!isVisible) return;
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(fullText.slice(0, i));
+      i++;
+      if (i > fullText.length) clearInterval(interval);
+    }, 40);
+    return () => clearInterval(interval);
+  }, [isVisible]);
+
   return (
-    <section className="bg-gray-50 py-24 px-6">
+    <section ref={sectionRef} className="bg-gray-50 py-24 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex items-center justify-between gap-8 mb-16">
+        <div
+          className={`flex items-center justify-between gap-8 mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+          }`}
+        >
           <div>
-            <h2 className="text-5xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-linear-to-r from-[#969c8a] to-black">
-              Pick the <span>best plan</span>
-              <br /> for your <span className="font-bold">business</span>
+            <h2 className="text-5xl md:text-6xl font-bold leading-tight text-transparent bg-clip-text bg-linear-to-r from-[#969c8a] to-black whitespace-pre-line">
+              {displayedText.split("best")[0]}
+              {displayedText.includes("best") && (
+                <>
+                  <span className="text-black font-bold">best</span>
+                  {displayedText.split("best")[1]}
+                </>
+              )}
             </h2>
           </div>
           <div>
@@ -75,7 +115,17 @@ export default function PricingPlansSection() {
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 items-start">
           {plans.map((plan, index) => (
-            <div key={index} className="relative flex justify-center">
+            <div
+              key={index}
+              className={`relative flex justify-center transition-all duration-700 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
+              }`}
+              style={{
+                transitionDelay: `${index * 200 + 300}ms`, // staggered appearance
+              }}
+            >
               {/* Highlighted border for center card */}
               {plan.highlight && (
                 <div className="absolute -top-10 -left-1 -right-1 -bottom-1 border-t-50 border-l-[5px] border-r-[5px] border-b-[5px] border-[#86d9c7] rounded-2xl"></div>
@@ -88,7 +138,7 @@ export default function PricingPlansSection() {
                 }`}
               >
                 {plan.highlight && (
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-black text-sm font-semibold  px-4 py-1 rounded-full">
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-black text-sm font-semibold px-4 py-1 rounded-full">
                     {plan.subtitle}
                   </span>
                 )}
