@@ -11,10 +11,10 @@ export default function Navbar() {
       {/* Left: Logo */}
       <div className="flex gap-14">
         <div className="flex items-center space-x-2 mb-4">
-          <div className="bg-lime-200 p-2 rounded-md">
+          <div className="bg-[#d0f18e] p-2 rounded-md">
             <Leaf className="w-5 h-5 text-green-700" />
           </div>
-          <h2 className="text-xl font-semibold text-gray-900">Orbitly</h2>
+          <h2 className="text-xl font-semibold text-[#d0f18e]">Orbitly</h2>
         </div>
 
         {/* Middle: Nav links */}
