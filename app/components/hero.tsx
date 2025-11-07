@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import Image1 from "./../../public/Adobe Express - file.png";
 
 export default function HeroSection() {
@@ -11,23 +11,33 @@ export default function HeroSection() {
   const paragraph =
     "Consolidate your projects, clients, and team into one integrated, easy-to-use platform.";
 
-  // Animation for letters
+  // Animate each letter of the heading
   const letterVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.05 },
+      transition: { delay: i * 0.05, ease: easeOut },
     }),
   };
 
-  // Button fade-in after paragraph finishes
+  // Paragraph appears after heading animation completes
+  const paragraphVariant = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { delay: 3, duration: 0.8, ease: easeOut },
+    },
+  };
+
+  // Buttons appear after paragraph animation
   const buttonVariant = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { delay: 6.5, duration: 0.8, ease: "easeOut" },
+      transition: { delay: 4, duration: 0.8, ease: easeOut },
     },
   };
 
@@ -62,25 +72,17 @@ export default function HeroSection() {
           ))}
         </motion.h1>
 
-        {/* Paragraph */}
+        {/* Paragraph (delayed until after heading) */}
         <motion.p
           className="text-[#939d91] text-base sm:text-lg leading-relaxed max-w-sm"
+          variants={paragraphVariant}
           initial="hidden"
           animate="visible"
         >
-          {paragraph.split(" ").map((word, i) => (
-            <motion.span
-              key={`p-${i}`}
-              variants={letterVariant}
-              custom={i}
-              className="inline-block mr-1"
-            >
-              {word}
-            </motion.span>
-          ))}
+          {paragraph}
         </motion.p>
 
-        {/* Buttons */}
+        {/* Buttons (after paragraph) */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 mt-4 sm:items-center"
           variants={buttonVariant}
@@ -94,7 +96,7 @@ export default function HeroSection() {
             </button>
           </div>
           <div className="inline-block">
-            <button className=" px-5 sm:px-6 py-2 sm:py-2.5 text-[#939d91] rounded-full font-medium transition hover:text-white">
+            <button className="px-5 sm:px-6 py-2 sm:py-2.5 text-[#939d91] rounded-full font-medium transition hover:text-white">
               Book a demo ❯
             </button>
           </div>
@@ -106,7 +108,7 @@ export default function HeroSection() {
         <Image
           src={Image1}
           alt="Hero Image"
-          className="mx-auto w-[90%] sm:w-[80%] md:w-full  h-auto object-contain"
+          className="mx-auto w-[90%] sm:w-[80%] md:w-full h-auto object-contain"
           priority
         />
       </div>
