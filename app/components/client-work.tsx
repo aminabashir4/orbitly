@@ -73,14 +73,14 @@ export default function ClientWorkflowSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="bg-gray-50 py-20 px-32 overflow-hidden">
+    <section ref={sectionRef} className="bg-gray-50 py-20 px-6 sm:px-10 md:px-16 lg:px-32 overflow-hidden">
       <div
         className={`mx-auto transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
         }`}
       >
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-14 gap-6">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-14 gap-6">
           <div>
             <h2 className="text-4xl md:text-6xl font-semibold text-gray-800 leading-tight whitespace-pre-line">
               {displayedText.split("your")[0]}
@@ -99,15 +99,15 @@ export default function ClientWorkflowSection() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-3">
+        <div className="grid gri-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => (
             <div
               key={index}
               className={`p-8 flex flex-col items-center justify-center text-center 
               hover:bg-linear-to-b from-gray-50 to-white transition-all duration-500
               ${
-                index < 3 ? "border-b border-gray-200" : ""
-              } ${index % 3 !== 2 ? "border-r border-gray-200" : ""}
+                index < 3 ? "border-b-0 lg:border-b border-gray-200" : ""
+              } ${index % 3 !== 2 ? "border-r-0 lg:border-r border-gray-200" : ""}
               ${
                 isVisible
                   ? "opacity-100 translate-y-0"

@@ -83,13 +83,13 @@ export default function DeliverSection() {
   }, [hasAnimated, contentControls]);
 
   return (
-    <section ref={sectionRef} className="bg-[#f9f9f9] py-20 px-6 md:px-32">
+    <section ref={sectionRef} className="bg-[#f9f9f9] py-20 px-6 sm:px-10 md:px-16 lg:px-32">
       <div className="mx-auto md:text-left">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={contentControls}
-          className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6"
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 gap-6"
         >
           <div>
             <h2 className="text-4xl md:text-6xl font-semibold text-gray-800 leading-tight whitespace-pre-line">
@@ -115,7 +115,7 @@ export default function DeliverSection() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
         >
           {/* Row 1 */}
-          <div className="flex gap-4 mb-5">
+          <div className="flex-col lg:flex-row flex gap-4 mb-5">
             {/* Big Card */}
             <div className="max-w-[618px] w-full bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg">
               <Image
@@ -133,7 +133,7 @@ export default function DeliverSection() {
             {[1, 2].map((i) => (
               <div
                 key={i}
-                className="flex flex-col justify-between max-w-[420px] bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg"
+                className="flex flex-col justify-between max-w-full lg:max-w-[420px] bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg"
               >
                 <Image
                   src={features[i].image}
@@ -151,11 +151,11 @@ export default function DeliverSection() {
           </div>
 
           {/* Row 2 */}
-          <div className="flex gap-4">
+          <div className="flex-col lg:flex-row flex gap-4">
             {[5, 3].map((i) => (
               <div
                 key={i}
-                className="flex flex-col justify-between max-w-[420px] bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg"
+                className="flex flex-col justify-between max-w-full lg:max-w-[420px] bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg"
               >
                 <Image
                   src={features[i].image}
@@ -172,7 +172,7 @@ export default function DeliverSection() {
             ))}
 
             {/* Big Card */}
-            <div className="max-w-[618px] w-full bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg">
+            <div className="max-w-full lg:max-w-[618px] w-full bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 transform hover:-translate-y-3 hover:shadow-lg">
               <Image
                 src={features[4].image}
                 alt={features[4].title}

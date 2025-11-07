@@ -23,9 +23,9 @@ export default function BillingSection() {
   ];
 
   return (
-    <section className="bg-[#16190e] text-gray-100 py-24 px-32 relative overflow-hidden">
+    <section className="bg-[#16190e] text-gray-100 py-24 px-6 sm:px-10 md:px-16 lg:px-32 relative overflow-hidden">
       {/* Top content */}
-      <div className="mx-auto grid lg:grid-cols-2 gap-12 items-center justify-between">
+      <div className="mx-auto flex flex-col lg:flex-row gap-12 items-start lg:items-center justify-between">
         <div>
           <h2 className="text-4xl md:text-6xl font-semibold text-transparent bg-clip-text bg-linear-to-r from-[#969c8a] to-white">
             Track <span className="text-gray-400">&nbsp;revenue&nbsp;</span> &

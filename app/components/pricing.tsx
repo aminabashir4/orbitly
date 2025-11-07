@@ -85,11 +85,11 @@ export default function PricingPlansSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="bg-gray-50 py-24 px-6 overflow-hidden">
+    <section ref={sectionRef} className="bg-gray-50 py-24 px-6 sm:px-10 md:px-16 lg:px-32 overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div
-          className={`flex items-center justify-between gap-8 mb-16 transition-all duration-700 ${
+          className={`flex-col lg:flex-row flex items-start lg:items-center justify-between gap-8 mb-28 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
           }`}
         >
@@ -113,7 +113,7 @@ export default function PricingPlansSection() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 items-start">
           {plans.map((plan, index) => (
             <div
               key={index}

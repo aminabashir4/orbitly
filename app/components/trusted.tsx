@@ -17,35 +17,39 @@ export default function TrustedSection() {
   ];
 
   return (
-    <section className="bg-[#f6f6f5] pt-32 pb-16 flex flex-col items-center">
-      <h2 className="text-gray-700 text-lg font-medium mb-10 text-center">
+    <section className="bg-[#f6f6f5] pt-20 sm:pt-28 md:pt-32 pb-12 sm:pb-16 flex flex-col items-center px-4 sm:px-8">
+      {/* Heading */}
+      <h2 className="text-gray-700 text-base sm:text-lg md:text-lg font-medium mb-8 sm:mb-10 text-center max-w-xs sm:max-w-none">
         Trusted by thousands of agencies and consulting firms
       </h2>
 
-      <div className="flex flex-wrap justify-center items-center gap-0 rounded-xl overflow-hidden border-2 border-gray-200 bg-white shadow-sm">
-        {companies.map((company) => (
+      {/* Logos container */}
+      <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-4 sm:gap-y-6 rounded-xl overflow-hidden border-2 border-gray-200 bg-white shadow-sm">
+        {companies.map((company, index) => (
           <div
             key={company.id}
-            className="relative flex flex-col items-center justify-center w-40 sm:w-52 md:w-56 h-28 border-r-2 last:border-r-0 border-gray-200 transition-all duration-500 hover:scale-105"
+            className={`relative flex flex-col items-center justify-center 
+              w-32 sm:w-40 md:w-52 lg:w-56 h-24 sm:h-28 
+              border-gray-200 transition-all duration-500 hover:scale-105
+              ${index !== companies.length - 1 ? "border-r-0 md:border-r-2" : ""}`}
           >
-            {/* ID in top-left corner */}
+            {/* ID top-left */}
             <span className="absolute top-2 left-3 text-xs text-gray-400">
               {company.id}
             </span>
 
-            {/* Company Logo */}
+            {/* Logo */}
             <Image
               src={company.logo}
               alt={company.name}
-              className="h-6 w-auto object-contain z-10 transition-transform duration-300 group-hover:scale-105"
+              className="h-5 sm:h-6 md:h-7 w-auto object-contain z-10 transition-transform duration-300 group-hover:scale-105"
             />
 
-            {/* Gradient Overlay on Hover */}
+            {/* Hover Gradient */}
             <div
               className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-md"
               style={{
-                background:
-                  "linear-gradient(to top, #b3e9b7 0%, #ffffff 80%)",
+                background: "linear-gradient(to top, #b3e9b7 0%, #ffffff 80%)",
               }}
             ></div>
           </div>
