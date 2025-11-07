@@ -6,6 +6,7 @@ import Deliver from './components/deliver'
 import ClientWorkflowSection from './components/client-work'
 import BillingSection from './components/billing'
 import PricingPlansSection from './components/pricing'
+import GetStartedSection from './components/get-started'
 
 const page = () => {
   return (
@@ -17,6 +18,7 @@ const page = () => {
       <ClientWorkflowSection/>
       <BillingSection/>
       <PricingPlansSection/>
+      <GetStartedSection/>
     </div>
   )
 }
